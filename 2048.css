@@ -1,0 +1,214 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: repeat;
+  background-image: url("./img/bg2048.svg");
+}
+
+.game-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Tulisan 2048 */
+h1 {
+  color: #defafd;
+  font-size: 9vmin;
+}
+
+/* Angka 48 */
+.four {
+  color: #ff5e00;
+}
+
+.score-container {
+  color: #f0f0f0;
+  font-size: 3vmin;
+}
+
+#score {
+  font-weight: bold;
+}
+
+#game-board {
+  /* --grid-size: 4;
+    --cell-size: 20vmin;
+    --cell-gap: 2vmin; */
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+  grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+  background-color: #cccccc;
+  gap: var(--cell-gap);
+  border-radius: 1vmin;
+  padding: var(--cell-gap);
+  position: relative;
+}
+
+.cell {
+  background-color: #aaaaaa;
+  border-radius: 1vmin;
+}
+
+.tile {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6.5vmin;
+  font-weight: bold;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 1vmin;
+  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+
+  /* background color berubah sesuai value tiles */
+  background-color: hsl(200, 50%, var(--background-lightness));
+  color: hsl(200, 25%, var(--text-lightness));
+
+  /* Animasi ketika tiles muncul dan transisi ketika tiles digeser */
+  animation: show 200ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0.2;
+    transform: scale(0);
+  }
+}
+
+.cover-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #102339;
+  background-image: linear-gradient(90deg, #102339 0%, #023c57 49%, #102339 99%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hai {
+  color: #f0f0f0;
+  font-size: 4vmin;
+  margin: 1vmin;
+}
+
+.title {
+  color: #ff5e00;
+  font-size: 4vmin;
+}
+
+#highscore {
+  color: #f0f0f0;
+  font-size: 3vmin;
+  margin: 1vmin;
+}
+
+.ready {
+  color: #f0f0f0;
+  font-size: 7vmin;
+  margin: 1vmin;
+}
+
+.q {
+  color: #ff5e00;
+  font-size: 7vmin;
+}
+
+.high {
+  color: #ff5e00;
+  font-size: 3vmin;
+}
+#start-button {
+  background-color: #0080ff;
+  padding: 1em 2em;
+  margin: 1vmin;
+  border: none;
+  border-radius: 0.5em;
+  font-size: 1em;
+  letter-spacing: 0.2px;
+  color: #feffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Change the background color on hover */
+#start-button:hover {
+  background-color: #0080ff9f;
+}
+
+.gameOver-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #102339;
+  background-image: linear-gradient(90deg, #102339 0%, #023c57 49%, #102339 99%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#restart-button,
+#home-button {
+  background-color: #0080ff;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 0.5em;
+  font-size: 1em;
+  letter-spacing: 0.2px;
+  color: #feffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Change the background color on hover */
+#restart-button:hover,
+#home-button:hover {
+  background-color: #0080ff9f;
+}
+
+.game-over {
+  color: #f0f0f0;
+  font-size: 7vmin;
+}
+
+.over {
+  color: #ff5e00;
+  font-size: 7vmin;
+}
+
+#result {
+  color: #f0f0f0;
+  font-size: 3vmin;
+  margin-bottom: 2vmin;
+}
+
+.hide {
+  display: none;
+}

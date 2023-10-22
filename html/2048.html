@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2048 by Sarah</title>
+    <!-- Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" />
+    <!-- File css -->
+    <link rel="stylesheet" href="../2048.css" />
+  </head>
+  <body>
+    <div class="cover-screen">
+      <h2 class="hai">Hello {user}, welcome to <span class="title">2048 </span>game</h2>
+      <h3 class="ready">Lets play! Are you ready?</h3>
+      <p id="highscore">Your current <span class="high">highscore</span> is 0</p>
+      <!-- <h4 id="highscore">Your Highscore</h4> -->
+      <button id="start-button">Start Game</button>
+    </div>
+
+    <div class="game-container hide">
+      <div class="heading">
+        <h1>20<span class="four">48</span></h1>
+        <div class="score-container">
+          <p>Score: <span id="score">0</span></p>
+        </div>
+      </div>
+      <div id="game-board"></div>
+    </div>
+
+    <div class="gameOver-screen hide">
+      <h2 class="game-over">Game <span class="over">Over</span></h2>
+      <p id="result"></p>
+      <div>
+        <button id="restart-button">Restart</button>
+        <button id="home-button">Home</button>
+      </div>
+    </div>
+    <!-- File Js -->
+    <script type="module" src="../2048.js"></script>
+  </body>
+</html>
