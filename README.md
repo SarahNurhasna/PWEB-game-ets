@@ -1,6 +1,6 @@
 # PWEB-game-ets
 
-PWEB F -ETS 2023
+PWEB F - ETS 2023
 
 | Nama | NRP |
 | ------ | ------ |
