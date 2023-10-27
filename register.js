@@ -1,16 +1,28 @@
 const registerButton = document.getElementById("register-button");
+const email = document.getElementById("email").value;
+const password = document.getElementById("pass").value;
+const repeatPassword = document.getElementById("pass-repeat").value;
+const fullname = document.getElementById("user").value;
+const form = document.getElementById("register-form");
 
-registerButton.addEventListener("click", function (event) {
-  // Mendapatkan nilai input dari formulir
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("pass").value;
-  const repeatPassword = document.getElementById("pass-repeat").value;
-  const fullname = document.getElementById("user").value;
+form.addEventListener("submit", (e) => {
+  e.preDefault();
+  validate();
+  // submitForm(e);
+});
+
+const validate = () => {
+  // Validasi nama
+  if (fullname.trim() === "") {
+    alert("Name must be filled in.");
+    e.preDefault();
+    return;
+  }
 
   // Validasi email
   if (email.value === "") {
-    alert("Email harus diisi.");
-    event.preventDefault();
+    alert("Emailmust be filled in.");
+    e.preDefault();
     return;
   }
 
@@ -18,38 +30,27 @@ registerButton.addEventListener("click", function (event) {
   const uppercaseRegex = /[A-Z]/;
   const lowercaseRegex = /[a-z]/;
   const digitRegex = /[0-9]/;
-  const symbolRegex = /[@#$%^&+=!]/;
+  const symbolRegex = /[@#$%^&+=-_/|!]/;
   if (password.length < 8 || !uppercaseRegex.test(password) || !lowercaseRegex.test(password) || !digitRegex.test(password) || !symbolRegex.test(password)) {
-    alert("Password tidak memenuhi kriteria. Pastikan memiliki huruf besar, huruf kecil, angka, dan simbol, dan panjang minimal 8 karakter.");
-    event.preventDefault();
+    alert("Password does not meet criteria. Make sure it has uppercase letters, lowercase letters, numbers, and symbols, and is at least 8 characters long.");
+    e.preDefault();
     return;
   }
 
-  // Validasi nama
-  if (fullname.trim() === "") {
-    alert("Nama harus diisi.");
-    event.preventDefault();
-    return;
-  }
   // Validasi kata sandi yang sama
-  if (password !== repeatPassword) {
-    alert("Password dan Ulangi Password harus sama.");
-    event.preventDefault();
+  if (password.value === "") {
+    alert("Password must be filled in.");
+    e.preDefault();
+    return;
+  } else if (password !== repeatPassword) {
+    alert("Passwords doesn't match.");
+    e.preDefault();
     return;
   }
+};
 
-  // Data yang akan dikirim ke server
-  const data = {
-    name: fullname,
-    email: email,
-    password: password,
-  };
-
-  submitForm(event);
-});
-
-function submitForm(event) {
-  event.preventDefault();
+function submitForm(e) {
+  e.preDefault();
   var form = document.getElementById("register-form");
 
   var payload = {
@@ -89,6 +90,6 @@ function submitForm(event) {
     });
 }
 
-var form = document.getElementById("register-form");
+var myform = document.addEventListener("form");
 
-form.addEventListener("Register", submitForm);
+myform.addeListener("submit", submitForm);
