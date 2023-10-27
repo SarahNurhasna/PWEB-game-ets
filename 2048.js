@@ -34,6 +34,8 @@ startButton.addEventListener("click", () => {
 
 // Reset game ketika click restart button
 restartButton.addEventListener("click", () => {
+  gameContainer.classList.remove("hide");
+  gameOverScreen.classList.add("hide");
   resetGame();
 });
 
@@ -41,12 +43,11 @@ homeButton.addEventListener("click", () => {
   gameOverScreen.classList.add("hide");
   gameContainer.classList.add("hide");
   coverScreen.classList.remove("hide");
+  resetGame();
 });
 
 // reset game
 function resetGame() {
-  gameContainer.classList.remove("hide");
-  gameOverScreen.classList.add("hide");
   // Hapus semua tile yang ada di dalam grid
   grid.cells.forEach((cell) => {
     if (cell.tile) {
